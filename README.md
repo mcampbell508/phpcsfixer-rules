@@ -1,6 +1,6 @@
 # Php CS Fixer Rules
 
-https://mcampbell508.github.io/phpcsfixer-rules
+https://mcampbell508.github.io/phpcsfixer-rules/
 
 The aim of this project is to provide a UI to help explain [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) rules, with clear examples. Personally, I think the official docs on the [README](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/2.9/README.rst) are okay, but I felt there could be a better way to view what each rule does and demonstrate what happens after applying each rule.
 
