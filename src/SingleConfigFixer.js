@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ReactGhLikeDiff } from 'react-gh-like-diff';
 import 'diff2html/dist/diff2html.css';
+import CodeExample from './CodeExample';
 
 class SingleConfigFixer extends Component {
     constructor(props) {
@@ -63,6 +64,7 @@ class SingleConfigFixer extends Component {
                                 }
                             />
 
+                            <CodeExample fixer={fixer} fixerName={fixerName} isConfigurable={true} valueId={index}/>
                         </div>
                     }) : null}
                 </div>
