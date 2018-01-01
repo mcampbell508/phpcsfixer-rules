@@ -3,62 +3,22 @@ import { ReactGhLikeDiff } from 'react-gh-like-diff';
 import 'diff2html/dist/diff2html.css';
 
 class SingleConfigFixer extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedConfig: 0
+        };
+    }
+
+    isActiveConfigTab(configId) {
+        return this.state.selectedConfig === configId;
+    }
+
+    setActiveConfigTab(configId) {
+        this.setState({ selectedConfig: configId });
+    }
 
     render() {
-        var fixer = this.props.fixer;
-        var fixerName = this.props.fixerName;
-
-        return (
-            <div>
-                <ReactGhLikeDiff
-                    key={fixerName}
-                    past={fixer.codeSamples[0].from}
-                    current={fixer.codeSamples[0].to}
-                    options={
-                        {
-                            outputFormat: 'line-by-line',
-                            originalFileName: `${fixerName}_example.php`,
-                            updatedFileName: `${fixerName}_example.php`,
-                        }
-                    }
-                />
-            </div>
-        );
-    }
-
-    getRiskyContent() {
-        return (
-            <div style={{ color: "red" }}>
-                <i className="fa fa-exclamation-circle" ></i> (Risky)
-              {` - `}
-                {this.props.fixer["riskyDescription"]}
-            </div>
-        );
-    }
-
-    showSingleExample() {
-        var fixer = this.props.fixer;
-        var fixerName = this.props.fixerName;
-
-        return (
-            <div>
-                <ReactGhLikeDiff
-                    key={fixerName}
-                    past={fixer.codeSamples[0].from}
-                    current={fixer.codeSamples[0].to}
-                    options={
-                        {
-                            outputFormat: 'line-by-line',
-                            originalFileName: `${fixerName}_example.php`,
-                            updatedFileName: `${fixerName}_example.php`,
-                        }
-                    }
-                />
-            </div>
-        );
-    }
-
-    showMultipleExamples() {
         var fixer = this.props.fixer;
         var fixerName = this.props.fixerName;
         var tabs = {}
@@ -102,10 +62,7 @@ class SingleConfigFixer extends Component {
                                     }
                                 }
                             />
-                            <hr />
-                            <code>
-                                'align_multiline_comment' => true,
-                            </code>
+
                         </div>
                     }) : null}
                 </div>
