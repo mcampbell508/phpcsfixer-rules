@@ -27,7 +27,7 @@ class CodeExample extends Component {
         ->setFinder(PhpCsFixer\\Finder::create()
             ->exclude('vendor')
             ->in(__DIR__)
-        )
+        );
     `}
                     </code>
                 </pre>
