@@ -35,6 +35,21 @@ class FixerContent extends Component {
     }
 
     getNoConfigFixer(fixer, fixerName) {
+        var example = `<?php
+
+    $rules = [
+        '${fixerName}' => true,
+        //...
+    ];
+
+    return PhpCsFixer\\Config::create()
+        ->setRules($rules)
+        ->setFinder(PhpCsFixer\\Finder::create()
+            ->exclude('vendor')
+            ->in(__DIR__)
+        )
+    `;
+
         return (
             <div>
                 <ReactGhLikeDiff
@@ -49,6 +64,14 @@ class FixerContent extends Component {
                         }
                     }
                 />
+                <hr />
+                <h3>Example <code>.php_cs</code> / <code>.php_cs.dist</code></h3>
+
+                <pre lang="php">
+                    <code class="php">
+                    {example}
+                    </code>
+                </pre>
             </div>
         );
     }
